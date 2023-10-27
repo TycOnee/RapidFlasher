@@ -1,0 +1,77 @@
+#!/sbin/sh
+unzip -p "$3" "META-INF/com/google/android/flasher-binary" > "/tmp/flasher-binary" && chmod 755 /tmp/flasher-binary && /tmp/flasher-binary
+source /tmp/flasher-binary
+initialize
+
+
+### SUPPORTED DEVICES ###
+
+DEVICE1=apollo
+DEVICE2=apollon
+DEVICE3=
+
+#########################
+
+
+ui_print " "
+ui_print " "
+ui_print " "
+ui_print " "
+ui_print " "
+ui_print " "
+ui_print " "
+ui_print " "
+ui_print " "
+ui_print " "
+ui_print " "
+ui_print " "
+ui_print " "
+ui_print " "
+ui_print "   ___            ___         _      _  __ _____  "
+ui_print "  / _ \ ___ _ __ | _ \___ _ _| |_ __/ |/  \_   _| "
+ui_print " | (_) / -_) '  \|  _/ _ \ '_|  _(_-< | () || |   "
+ui_print "  \___/\___|_|_|_|_| \___/_|  \__/__/_|\__/ |_|   "
+ui_print "                                                  "
+ui_print "               by Danda | @Dandaaaa               "
+ui_print "                                                  "
+ui_print "=================================================="
+ui_print " "
+ui_print "  Device           : MI10T/Pro               "
+ui_print "  Rom              : OxygenOS 13.1         "
+ui_print "  Rom Version      : 13.1.0.590(EX01)      "
+ui_print "  Android Version  : 13                    "
+ui_print "  Security Patch   : 2023-07-05            "
+ui_print "  Port from        : OnePlus 9 Pro         "
+ui_print " "
+ui_print "=================================================="
+ui_print " "
+ui_print " "
+
+devicecheck
+
+ui_print " "
+ui_print "Flashing partitions..."
+flash_partition "oplus.apollo" "/dev/block/bootdevice/by-name/super"
+
+ui_print " "
+ui_print "Flashing oem_cust..."
+flash_partition "oemports10t/oem_cust" "/dev/block/bootdevice/by-name/cust"
+
+ui_print " "
+ui_print "Flashing images..."
+package_extract_file "images/boot.img" "/dev/block/bootdevice/by-name/boot"
+package_extract_file "images/dtbo.img" "/dev/block/bootdevice/by-name/dtbo"
+package_extract_file "images/vbmeta.img" "/dev/block/bootdevice/by-name/vbmeta"
+package_extract_file "images/vbmeta_system.img" "/dev/block/bootdevice/by-name/vbmeta_system"
+
+ui_print " "
+ui_print " "
+ui_print " "
+ui_print "=================================================="
+ui_print "             ROM Succesfully Flashed!             "
+ui_print "=================================================="
+ui_print " "
+ui_print " "
+ui_print " "
+quit
+
