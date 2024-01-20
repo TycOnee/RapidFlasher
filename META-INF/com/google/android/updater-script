@@ -43,6 +43,8 @@ ui_print " "
 
 devicecheck
 
+show_progress "35"
+
 ui_print " "
 ui_print "Flashing partitions..."
 flash_partition "oplus.apollo" "/dev/block/bootdevice/by-name/super"
