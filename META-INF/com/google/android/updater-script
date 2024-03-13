@@ -1,12 +1,3 @@
-### SUPPORTED DEVICES ###
-
-DEVICE1=apollo
-DEVICE2=apollon
-DEVICE3=
-
-#########################
-
-
 ui_print " "
 ui_print " "
 ui_print " "
@@ -30,35 +21,35 @@ ui_print "               by Danda | @Dandaaaa               "
 ui_print "                                                  "
 ui_print "=================================================="
 ui_print " "
-ui_print "  Device           : MI10T/Pro               "
-ui_print "  Rom              : OxygenOS 13.1         "
-ui_print "  Rom Version      : 13.1.0.590(EX01)      "
-ui_print "  Android Version  : 13                    "
-ui_print "  Security Patch   : 2023-07-05            "
-ui_print "  Port from        : OnePlus 9 Pro         "
+ui_print "  Device           : POCO F3               "
+ui_print "  Rom              : MYUI 6.0         "
+ui_print "  Rom Version      : U1TR34-8-19-11      "
+ui_print "  Build            : 2024-01-20    "
+ui_print "  Android Version  : 14                    "
+ui_print "  Security Patch   : 2024-01-01          "
+ui_print "  Port from        : moto 40X         "
 ui_print " "
 ui_print "=================================================="
 ui_print " "
 ui_print " "
 
-devicecheck
+verify_device "alioth,aliothin"
 
 show_progress "35"
 
 ui_print " "
 ui_print "Flashing partitions..."
-flash_partition "oplus.apollo" "/dev/block/bootdevice/by-name/super"
-
-ui_print " "
-ui_print "Flashing oem_cust..."
-flash_partition "oemports10t/oem_cust" "/dev/block/bootdevice/by-name/cust"
+package_flash_partition "0" "myui.alioth" "/dev/block/bootdevice/by-name/super"
 
 ui_print " "
 ui_print "Flashing images..."
-package_extract_file "images/boot.img" "/dev/block/bootdevice/by-name/boot"
-package_extract_file "images/dtbo.img" "/dev/block/bootdevice/by-name/dtbo"
-package_extract_file "images/vbmeta.img" "/dev/block/bootdevice/by-name/vbmeta"
-package_extract_file "images/vbmeta_system.img" "/dev/block/bootdevice/by-name/vbmeta_system"
+package_flash_partition "1" "images/boot.img.gz" "/dev/block/bootdevice/by-name/boot_a"
+package_flash_partition "1" "images/dtbo.img.gz" "/dev/block/bootdevice/by-name/dtbo_a"
+package_flash_partition "1" "images/vendor_boot.img.gz" "/dev/block/bootdevice/by-name/vendor_boot_a"
+package_extract_file "images/vbmeta.img" "/dev/block/bootdevice/by-name/vbmeta_a"
+package_extract_file "images/vbmeta_system.img" "/dev/block/bootdevice/by-name/vbmeta_system_a"
+
+set_slot "0"
 
 ui_print " "
 ui_print " "
