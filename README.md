@@ -13,4 +13,5 @@ Supports zstd (Zstandard) and gzip (pigz) compressed partition images.
 - package_flash_partition "0/1" "FILE" "TARGET BLOCK DEVICE" : flashes compressed image into its target partition
   - 0 : zstd (Zstandard)
   - 1 : gzip (pigz)
+- package_extract_oplus_partitions "oplus partitions .tar.gz file" : [for this](https://github.com/Danda420/oplus_image_flasher)
   
