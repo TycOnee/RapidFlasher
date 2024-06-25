@@ -1,8 +1,10 @@
 # RapidFlasher
 
-Usually flashes rom in below 1 minute
+A Hybrid ROM Installer.
 
-Supports zstd (Zstandard) and gzip (pigz) compressed partition images.
+Usually flashes rom in below 1 minute (RECOVERY)
+
+update-binary supports zstd (Zstandard) and gzip (pigz) compressed partition images.
 
 ***
 
