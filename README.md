@@ -4,7 +4,7 @@ A Hybrid ROM Installer.
 
 Usually flashes rom in below 1 minute (RECOVERY)
 
-update-binary supports zstd (Zstandard) and gzip (pigz) compressed partition images.
+update-binary supports zstd (Zstandard), gzip (pigz) and sparse compressed partition images.
 
 ***
 
@@ -15,5 +15,6 @@ update-binary supports zstd (Zstandard) and gzip (pigz) compressed partition ima
 - package_flash_partition "0/1" "FILE" "TARGET BLOCK DEVICE" : flashes compressed image into its target partition
   - 0 : zstd (Zstandard)
   - 1 : gzip (pigz)
-- package_extract_oplus_partitions "oplus partitions .tar.gz file" : [for this](https://github.com/Danda420/oplus_image_flasher)
+  - 2 : sparse (sparsechunk is not supported yet)
+- package_extract_targz "tar.gz file" "outdir" : extracts tar gz compressed file into a directory
   
