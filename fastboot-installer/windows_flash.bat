@@ -30,6 +30,9 @@ if %match1% equ 0 (
     exit /B 1
 )
 
+
+%fastboot% set_active a >NUL 2>NUL
+	
 set super=myui.alioth
 echo.Flashing partitions...
 %fastboot_f% -d %super% -o %super%.img
@@ -63,7 +66,6 @@ if /I "%CHOICE%" == "y" (
     %fastboot% erase userdata >NUL 2>NUL
     %fastboot% erase metadata >NUL 2>NUL
     echo.                  REBOOTING
-    %fastboot% set_active a >NUL 2>NUL
     %fastboot% reboot
     echo.==============================================
 ) else if /I "%CHOICE%" == "n" (

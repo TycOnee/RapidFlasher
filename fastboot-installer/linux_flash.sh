@@ -20,6 +20,9 @@ else
     exit 1
 fi
 
+
+$fastboot set_active a > /dev/null 2>&1
+	
 super=myui.alioth
 echo "Flashing partitions..."
 $fastboot_f -d $super -o $super.img
@@ -51,7 +54,6 @@ if [[ $CHOICE == y ]]; then
     $fastboot erase userdata > /dev/null 2>&1
     $fastboot erase metadata > /dev/null 2>&1
     echo "                   REBOOTING                  "
-    $fastboot set_active a > /dev/null 2>&1
     $fastboot reboot
     echo "=============================================="
 elif [[ $CHOICE == n ]]; then
