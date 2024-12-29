@@ -1,8 +1,10 @@
 #!/bin/bash
 cd $(dirname $0)
 cd ..
-fastboot=META-INF/bin/fastboot/fastboot
-fastboot_f=META-INF/bin/fastboot/fastboot_f
+fastbootbins=META-INF/bin/fastboot
+fastboot=$fastbootbins/fastboot
+fastboot_f=$fastbootbins/fastboot_f
+chmod 755 $fastbootbins/*
 echo "=============================================="
 echo "         OemPorts10T Fastboot Flasher         "
 echo "                     LINUX                    "
