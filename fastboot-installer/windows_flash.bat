@@ -40,6 +40,17 @@ echo.Flashing partitions...
 %fastboot% flash super %super%.img
 del %super%.img
 
+:: for sparsechunk (comment or remove zstd code ones if you're using this)
+:: 
+:: set "chunkname=super.img_sparsechunk"
+:: set "startchunk=0"
+:: set "endchunk=12"
+:: %fastboot% erase super >NUL 2>NUL
+:: for /L %%i in (%startchunk%,1,%endchunk%) do (
+::     echo Flashing %chunkname%.%%i
+::     %fastboot% flash super %chunkname%.%%i
+:: )
+
 if exist "oemports10t/oem_cust" (
     echo.
     echo.Flashing cust...

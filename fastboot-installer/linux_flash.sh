@@ -40,6 +40,16 @@ if [[ -f oemports10t/oem_cust ]]; then
     rm -rf oem_cust.img
 fi
 
+# for sparsechunk (comment or remove zstd code ones if you're using this)
+#
+# chunkname=super.img_sparsechunk
+# startchunk=0
+# endchunk=12
+# $fastboot erase super > /dev/null 2>&1
+# for i in $(seq $startchunk $endchunk); do
+#   $fastboot flash super $chunkname.$i
+# done
+
 echo ""
 echo "Flashing images..."
 $fastboot flash boot_ab images/boot.img
