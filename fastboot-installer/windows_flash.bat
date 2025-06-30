@@ -1,19 +1,19 @@
 @echo off&setlocal enabledelayedexpansion
 cd %~dp0
 cd ..
-title OemPorts10T Fastboot Flasher
+title Fastboot Flasher
 set fastboot=META-INF\bin\fastboot\fastboot.exe
 if %PROCESSOR_ARCHITECTURE%==x86 (set fastboot_f=META-INF\bin\fastboot\fastboot32.exe) else set fastboot_f=META-INF\bin\fastboot\fastboot64.exe
 echo.==============================================
-echo.         OemPorts10T Fastboot Flasher
+echo.              Fastboot Flasher
 echo.                   WINDOWS
 echo.==============================================
 echo.
 set /p CHOICE="Format Data? (y/n): "
 echo.
 
-set "codename1=alioth"
-set "codename2=aliothin"
+set "codename1=vili"
+set "codename2=viliin"
 
 %fastboot% getvar product 2>&1 | findstr /r /c:"^product: *%codename1%"  >NUL 2>NUL
 set "match1=%errorlevel%"
@@ -33,7 +33,7 @@ if %match1% equ 0 (
 
 %fastboot% set_active a >NUL 2>NUL
 	
-set super=myui.alioth
+set super=super
 echo.Flashing partitions...
 %fastboot_f% -d %super% -o %super%.img
 %fastboot% erase super >NUL 2>NUL
