@@ -6,13 +6,13 @@ fastboot=$fastbootbins/fastboot
 fastboot_f=$fastbootbins/fastboot_f
 chmod 755 $fastbootbins/*
 echo "=============================================="
-echo "         OemPorts10T Fastboot Flasher         "
+echo "                Fastboot Flasher              "
 echo "                     LINUX                    "
 echo "=============================================="
 read -p "Format Data? (y/n): " CHOICE
 
-codename1=alioth
-codename2=aliothin
+codename1=vili
+codename2=vilin
 checkdevice=$($fastboot getvar product 2>&1 | grep "product:" | awk '{print $2}')
 
 if [[ $checkdevice == $codename1 ]] || [[ $checkdevice == $codename2 ]]; then
@@ -25,7 +25,7 @@ fi
 
 $fastboot set_active a > /dev/null 2>&1
 	
-super=myui.alioth
+super=super
 echo "Flashing partitions..."
 $fastboot_f -d $super -o $super.img
 $fastboot erase super > /dev/null 2>&1
