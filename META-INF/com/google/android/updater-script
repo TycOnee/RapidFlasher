@@ -28,9 +28,9 @@ package_flash_partition "0" "super" "/dev/block/bootdevice/by-name/super"
 
 ui_print " "
 ui_print "Flashing images..."
-package_flash_partition "1" "images/boot.img.gz" "/dev/block/bootdevice/by-name/boot_a"
-package_flash_partition "1" "images/dtbo.img.gz" "/dev/block/bootdevice/by-name/dtbo_a"
-package_flash_partition "1" "images/vendor_boot.img.gz" "/dev/block/bootdevice/by-name/vendor_boot_a"
+package_flash_partition "1" "images/boot.img" "/dev/block/bootdevice/by-name/boot_a"
+package_flash_partition "1" "images/dtbo.img" "/dev/block/bootdevice/by-name/dtbo_a"
+package_flash_partition "1" "images/vendor_boot.img" "/dev/block/bootdevice/by-name/vendor_boot_a"
 package_extract_file "images/vbmeta.img" "/dev/block/bootdevice/by-name/vbmeta_a"
 package_extract_file "images/vbmeta_system.img" "/dev/block/bootdevice/by-name/vbmeta_system_a"
 
